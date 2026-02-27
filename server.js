@@ -1,18 +1,11 @@
 const express = require('express');
 const path = require('path');
-const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 
 dotenv.config();
 
 const app = express();
-
-// MongoDB connection
-mongoose
-  .connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true }) // [web:5][web:10]
-  .then(() => console.log('Connected to MongoDB'))
-  .catch((err) => console.error('MongoDB connection error:', err.message));
 
 // EJS setup
 app.set('view engine', 'ejs');

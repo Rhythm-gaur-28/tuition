@@ -1,13 +1,13 @@
-const Contact = require('../models/Contact');
+const sendEnquiryEmail = require('../utils/mailer');
 
-const waLink = () => {
+const buildWaLink = () => {
   const whatsappNumber = process.env.WHATSAPP_NUMBER;
   return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
     'Hello, I am interested in CBSE tuition classes at Ambala Academic Classes.'
   )}`;
 };
 
-const pageTitle = 'Ambala Academic Classes - CBSE Tuition for Classes 1–12';
+const PAGE_TITLE = 'Ambala Academic Classes - CBSE Tuition for Classes 1–12';
 
 // GET home page
 exports.getHome = (req, res) => {
@@ -15,8 +15,8 @@ exports.getHome = (req, res) => {
   const error = req.query.error === '1';
 
   res.render('index', {
-    pageTitle,
-    waLink: waLink(),
+    pageTitle: PAGE_TITLE,
+    waLink: buildWaLink(),
     successMessage: success
       ? 'Thank you! We have received your enquiry. We will contact you shortly.'
       : null,
@@ -30,17 +30,21 @@ exports.getHome = (req, res) => {
 exports.postContact = async (req, res) => {
   const { name, phone, studentClass, message } = req.body;
 
-  if (!name || !phone || !studentClass) {
-    // ✅ No #contact hash — JS handles scrolling
+  // All fields including message are required
+  if (
+    !name || !name.trim() ||
+    !phone || !phone.trim() ||
+    !studentClass ||
+    !message || !message.trim()
+  ) {
     return res.redirect('/?error=validation');
   }
 
   try {
-    await Contact.create({ name, phone, studentClass, message });
-    // ✅ PRG pattern — no #contact hash
+    await sendEnquiryEmail({ name: name.trim(), phone: phone.trim(), studentClass, message: message.trim() });
     res.redirect('/?success=1');
   } catch (err) {
-    console.error('Error saving contact:', err.message);
+    console.error('Email error:', err.message);
     res.redirect('/?error=1');
   }
 };

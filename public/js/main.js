@@ -147,7 +147,6 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
   });
 }
 
-
 // Contact form client-side validation
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
@@ -155,10 +154,16 @@ if (contactForm) {
     const name = contactForm.querySelector('#name');
     const phone = contactForm.querySelector('#phone');
     const studentClass = contactForm.querySelector('#studentClass');
+    const message = contactForm.querySelector('#message');
 
-    if (!name.value.trim() || !phone.value.trim() || !studentClass.value) {
+    if (
+      !name.value.trim() ||
+      !phone.value.trim() ||
+      !studentClass.value ||
+      !message.value.trim()
+    ) {
       e.preventDefault();
-      alert('Please fill in Name, Phone and Class before submitting.');
+      alert('Please fill in all fields including your message before submitting.');
     }
   });
 }
