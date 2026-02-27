@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    <%= pageTitle %>
+  </title>
+  <meta name="description"
+    content="Ambala Academic Classes offers quality CBSE tuition for classes 1–12 in Ambala, Haryana with small batches, personal attention, and experienced tutors." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+
+<body>
+
+  <header class="header js-header">
+    <div class="header-inner">
+      <div class="logo">
+        <img src="/images/logo.png" alt="Ambala Academic Classes Logo" />
+        <div class="logo-text">
+          <span class="logo-title">Ambala Academic Classes</span>
+          <span class="logo-subtitle">Ambala, Haryana</span>
+        </div>
+      </div>
+      <button class="hamburger js-hamburger" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav js-nav">
+        <a href="#why">Why Us</a>
+        <a href="#subjects">Subjects</a>
+        <a href="#classes">Classes</a>
+        <a href="#about">Tutor</a>
+        <a href="#timings">Timings</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero section" id="home">
+      <div class="hero-bg-shape hero-bg-shape--1"></div>
+      <div class="hero-bg-shape hero-bg-shape--2"></div>
+      <div class="hero-bg-shape hero-bg-shape--3"></div>
+      <div class="hero-content animate-on-load">
+        <p class="hero-kicker">Quality CBSE Coaching in Ambala</p>
+        <h1 class="hero-heading">CBSE Tuition for Classes 1–12</h1>
+        <p class="hero-subheading">
+          Personal Attention | Small Batches | Strong Academic Foundation
+        </p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary ripple">Enroll Now</a>
+          <a href="<%= waLink %>" class="btn btn-whatsapp ripple" target="_blank" rel="noopener">
+            Chat on WhatsApp
+          </a>
+        </div>
+        <ul class="hero-highlights">
+          <li>Experienced CBSE tutors</li>
+          <li>Conceptual understanding & exam prep</li>
+          <li>Located in Ambala, Haryana</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section section-card" id="why">
+      <h2 class="section-title">Why Choose Us</h2>
+      <p class="section-subtitle">
+        A focused learning environment that supports every student.
+      </p>
+      <div class="why-grid">
+        <article class="info-card observe fade-up">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <!-- Left person head -->
+              <circle cx="7" cy="9" r="3" />
+              <!-- Right person head -->
+              <circle cx="17" cy="9" r="3" />
+
+              <!-- Left person body -->
+              <path d="M2 20c0-3 2.5-5 5-5s5 2 5 5" />
+
+              <!-- Right person body -->
+              <path d="M12 20c0-3 2.5-5 5-5s5 2 5 5" />
+            </svg>
+          </div>
+          <h3>Small Batch Size</h3>
+          <p>Limited seats in each batch to ensure every child gets attention.</p>
+        </article>
+
+        <article class="info-card observe fade-up">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+
+              <!-- Larger magnifying glass lens -->
+              <circle cx="10.5" cy="10.5" r="8" />
+
+              <!-- Handle -->
+              <path d="M21 21l-4.5-4.5" />
+
+              <!-- Individual head (slightly larger) -->
+              <circle cx="10.5" cy="8.5" r="2.3" />
+
+              <!-- Individual body (scaled proportionally) -->
+              <path d="M7.5 16c0-2.4 1.8-3.5 3-3.5s3 1.1 3 3.5" />
+
+            </svg>
+          </div>
+          <h3>Individual Attention</h3>
+          <p>Mentor-style guidance with regular one‑to‑one doubt clearing.</p>
+        </article>
+
+        <article class="info-card observe fade-up">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <!-- test sheet -->
+              <rect x="5" y="3" width="14" height="18" rx="2"></rect>
+              <path d="M8 8h8M8 12h5M9 16l1.5 1.5L13 15" />
+            </svg>
+          </div>
+          <h3>Weekly Assessments</h3>
+          <p>Structured tests with simple reports for students and parents.</p>
+        </article>
+
+        <article class="info-card observe fade-up">
+          <div class="info-icon">
+            <svg viewBox="0 0 26 26" width="64" height="64" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+
+              <!-- Larger Coin Circle -->
+              <circle cx="12" cy="9" r="7.5" stroke-width="1.8" />
+
+              <!-- Dollar Sign: vertical spine -->
+              <line x1="12" y1="3.5" x2="12" y2="14.5" stroke-width="1.4" />
+
+              <!-- Dollar Sign: S-curve -->
+              <path d="M14.5 5.8 C14.5 4.5 9.5 4.5 9.5 6.7 C9.5 8.9 14.5 8.3 14.5 10.5 C14.5 12.7 9.5 12.7 9.5 11.4"
+                stroke-width="1.4" fill="none" />
+
+              <!-- Down Arrow stem -->
+              <line x1="12" y1="17" x2="12" y2="21.5" stroke-width="2" />
+
+              <!-- Down Arrow chevron — tip moved further down to y=24.5 -->
+              <polyline points="8,19.5 12,24.5 16,19.5" stroke-width="2" />
+
+            </svg>
+
+
+          </div>
+          <h3>Affordable Fees</h3>
+          <p>Transparent, reasonable fee structure with flexible payment options.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Subjects Offered -->
+    <section class="section" id="subjects">
+      <h2 class="section-title">Subjects Offered</h2>
+      <p class="section-subtitle">
+        Core CBSE subjects for classes 1–12.
+      </p>
+      <div class="subjects-grid">
+
+        <!-- Mathematics -->
+        <div class="subject-card observe stagger">
+          <div class="subject-svg">
+            <svg viewBox="0 0 24 24" width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round">
+              <!-- Plus -->
+              <path d="M6 6v6M3 9h6" />
+              <!-- Minus -->
+              <path d="M13 9h6" />
+              <!-- Multiply (X) -->
+              <path d="M4 17l4 4M8 17l-4 4" />
+              <!-- Divide -->
+              <circle cx="16" cy="16.5" r="1" />
+              <circle cx="16" cy="21" r="1" />
+              <path d="M13 18.75h6" />
+            </svg>
+          </div>
+          <h3>Mathematics</h3>
+        </div>
+
+        <!-- Science -->
+        <div class="subject-card observe stagger">
+          <div class="subject-svg">
+            <svg viewBox="0 0 24 24" width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round">
+              <circle cx="12" cy="12" r="2" />
+              <ellipse cx="12" cy="12" rx="9" ry="4" />
+              <ellipse cx="12" cy="12" rx="4" ry="9" />
+            </svg>
+          </div>
+          <h3>Science</h3>
+        </div>
+
+        <!-- English -->
+        <div class="subject-card observe stagger">
+          <div class="subject-svg">
+            <svg viewBox="0 0 24 24" width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 20L12 4L18 20" />
+              <path d="M9 14h6" />
+            </svg>
+          </div>
+          <h3>English</h3>
+        </div>
+
+        <!-- Social Studies -->
+        <div class="subject-card observe stagger">
+          <div class="subject-svg">
+            <svg viewBox="0 0 24 24" width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M3 12h18" />
+              <path d="M12 3a15 15 0 0 1 0 18" />
+              <path d="M12 3a15 15 0 0 0 0 18" />
+            </svg>
+          </div>
+          <h3>Social Studies</h3>
+        </div>
+
+        <!-- Hindi -->
+        <div class="subject-card observe stagger">
+          <div class="subject-svg">
+            <svg viewBox="0 0 48 48" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <style>
+                  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300&display=swap');
+                </style>
+              </defs>
+              <text x="24" y="34" font-size="32" font-weight="300" font-family="'Noto Sans Devanagari', serif"
+                text-anchor="middle" fill="currentColor">अ</text>
+            </svg>
+          </div>
+          <h3>Hindi</h3>
+        </div>
+
+
+        <!-- Computer Science -->
+        <div class="subject-card observe stagger">
+          <div class="subject-svg">
+            <svg viewBox="0 0 24 24" width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="5" width="16" height="10" rx="2" />
+              <path d="M2 17h20" />
+              <path d="M9 9h6M9 12h4" />
+            </svg>
+          </div>
+          <h3>Computer Science</h3>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- Classes We Teach (Accordion) -->
+    <section class="section section-card" id="classes">
+      <h2 class="section-title">Classes We Teach</h2>
+      <div class="classes-intro">
+        Structured batches for every stage – from primary basics to board exam preparation.
+      </div>
+      <div class="accordion">
+        <div class="accordion-item observe slide-up">
+          <button class="accordion-header js-accordion-header">
+            <div class="accordion-header-main">
+              <span class="badge badge-primary">1–5</span>
+              <span>Primary Classes</span>
+            </div>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-body">
+            <ul class="accordion-list">
+              <li>Concept-building in Mathematics, English and EVS.</li>
+              <li>Handwriting and basic grammar practice.</li>
+              <li>Regular worksheets and reading sessions.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="accordion-item observe slide-up">
+          <button class="accordion-header js-accordion-header">
+            <div class="accordion-header-main">
+              <span class="badge badge-secondary">6–8</span>
+              <span>Middle Classes</span>
+            </div>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-body">
+            <ul class="accordion-list">
+              <li>Strong foundation in Math, Science and Social Science.</li>
+              <li>Conceptual explanations with real‑life examples.</li>
+              <li>Weekly tests and notebook checking.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="accordion-item observe slide-up">
+          <button class="accordion-header js-accordion-header">
+            <div class="accordion-header-main">
+              <span class="badge badge-accent">9–10</span>
+              <span>Board Foundation</span>
+            </div>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-body">
+            <ul class="accordion-list">
+              <li>NCERT line‑by‑line coverage and exemplar questions.</li>
+              <li>Chapter‑wise test series and revision worksheets.</li>
+              <li>Detailed discussion of previous year questions.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="accordion-item observe slide-up">
+          <button class="accordion-header js-accordion-header">
+            <div class="accordion-header-main">
+              <span class="badge badge-primary">11–12</span>
+              <span>Senior Secondary (CBSE)</span>
+            </div>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-body">
+            <ul class="accordion-list">
+              <li>Subject‑wise coaching in Maths, Science and Commerce.</li>
+              <li>Focus on derivations, numericals and writing skills.</li>
+              <li>Support for school unit tests and pre‑boards.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Tutor -->
+    <section class="section" id="about">
+      <h2 class="section-title">About the Tutor</h2>
+      <div class="about-wrapper observe slide-left">
+        <div class="about-image about-image-large">
+          <img src="/images/tutor.jpg" alt="Tutor at Ambala Academic Classes" />
+        </div>
+        <div class="about-content about-content-wide">
+          <h3>Mrs. [Tutor Name]</h3>
+          <p class="about-short">
+            M.Sc. (Mathematics), 10+ years of CBSE teaching experience with a calm, student‑friendly approach.
+          </p>
+          <p class="about-paragraph">
+            She believes that every student can excel with the right guidance and regular practice. Her classes
+            emphasise conceptual clarity first, followed by graded practice sheets so that students gradually
+            gain speed and accuracy. Parents are kept informed through periodic interactions and performance
+            reports, making learning a true partnership between teacher, student and family.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="section section-card section-benefits" id="benefits">
+      <h2 class="section-title">Benefits for Students</h2>
+      <p class="section-subtitle">
+        A complete support system that keeps students motivated and on track.
+      </p>
+      <div class="benefits-grid observe fade-up">
+        <article class="benefit-card">
+          <div class="benefit-icon-circle">
+            <svg viewBox="0 0 24 24">
+              <rect x="4" y="4" width="16" height="16" rx="2" />
+              <path d="M7 9h10M7 13h6" />
+            </svg>
+          </div>
+          <h3>Regular Tests</h3>
+          <p>Topic‑wise tests with timely feedback and corrections.</p>
+        </article>
+        <article class="benefit-card">
+          <div class="benefit-icon-circle">
+            <svg viewBox="0 0 32 32" width="64" height="64" fill="none" stroke="currentColor" stroke-width="1.7"
+              stroke-linecap="round" stroke-linejoin="round">
+
+              <!-- Bulb shape -->
+              <path d="M16 3a8 8 0 0 1 5.66 13.66C20.5 18 20 19.5 20 21H12c0-1.5-.5-3-1.66-4.34A8 8 0 0 1 16 3z" />
+
+              <!-- Horizontal lines (base of bulb) -->
+              <path d="M12 23h8" />
+              <path d="M13.5 26h5" />
+
+              <!-- Question mark: top arc — shifted up by 2 units -->
+              <path d="M14 10.5c0-2 4-2 4 0c0 1.5-2 1.8-2 3.2" />
+              <!-- Question mark: dot — shifted up by 2 units -->
+              <circle cx="16" cy="16" r="0.7" fill="currentColor" stroke="none" />
+
+            </svg>
+          </div>
+          <h3>Doubt Support</h3>
+          <p>Dedicated time for doubts after class and on WhatsApp.</p>
+        </article>
+        <article class="benefit-card">
+          <div class="benefit-icon-circle">
+            <svg viewBox="0 0 24 24">
+              <circle cx="8" cy="9" r="2.2" />
+              <circle cx="16" cy="9" r="2.2" />
+              <path d="M4 18c0-2.2 1.8-4 4-4" />
+              <path d="M12 18c0-2.2 1.8-4 4-4" />
+            </svg>
+          </div>
+          <h3>Parent Meetings</h3>
+          <p>Periodic discussions to review performance and plan ahead.</p>
+        </article>
+        <article class="benefit-card">
+          <div class="benefit-icon-circle">
+            <svg viewBox="0 0 32 32" width="64" height="64" fill="none" stroke="currentColor" stroke-width="1.7"
+              stroke-linecap="round" stroke-linejoin="round">
+
+              <!-- Outer circle -->
+              <circle cx="16" cy="16" r="13" />
+
+              <!-- Inner bullseye -->
+              <circle cx="16" cy="16" r="6.5" />
+
+              <!-- Shaft: y1 7→9, y2 16→18 -->
+              <line x1="28" y1="9" x2="14" y2="18" />
+
+              <!-- Wing 1: all y +2 -->
+              <line x1="14" y1="18" x2="15.5" y2="13.3" />
+
+              <!-- Wing 2: all y +2 -->
+              <line x1="14" y1="18" x2="18.3" y2="18.2" />
+
+            </svg>
+          </div>
+          <h3>Exam Strategy</h3>
+          <p>Board paper tips and exam practice for every student.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Batch Timings -->
+    <section class="section section-card" id="timings">
+      <h2 class="section-title">Batch Timings</h2>
+      <div class="timings-table-wrapper observe slide-right">
+        <table class="timings-table">
+          <thead>
+            <tr>
+              <th>Batch</th>
+              <th>Classes</th>
+              <th>Days</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Morning Batch</td>
+              <td>Classes 1–12</td>
+              <td>Mon – Sat</td>
+              <td>6:00 AM – 2:30 PM</td>
+            </tr>
+            <tr>
+              <td>Evening Batch</td>
+              <td>Classes 1–12</td>
+              <td>Mon – Sat</td>
+              <td>4:00 PM – 9:00 PM</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+<!-- Testimonials -->
+<section class="section" id="testimonials">
+  <h2 class="section-title">Testimonials</h2>
+
+  <div class="testimonials-wrapper scroller" data-speed="slow" data-direction="left">
+    <div class="testimonials-track scroller__inner">
+
+      <!-- ONLY ORIGINAL SET — NO DUPLICATES -->
+      
+      <article class="testimonial-card">
+        <div class="testimonial-top">
+          <div class="testimonial-avatar">
+            <img src="https://i.pinimg.com/736x/21/07/77/210777f717fa0a802f3b693ffe98c502.jpg" alt="Parent testimonial"/>
+          </div>
+          <div>
+            <p class="testimonial-name">Parent – Class 8</p>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="testimonial-text">"My daughter's confidence in Mathematics has improved a lot. Regular tests and guidance helped her score better in school exams."</p>
+      </article>
+
+      <article class="testimonial-card">
+        <div class="testimonial-top">
+          <div class="testimonial-avatar">
+            <img src="https://i.pinimg.com/736x/ef/97/25/ef972507d073f998e8091814528e86d1.jpg" alt="Student testimonial"/>
+          </div>
+          <div>
+            <p class="testimonial-name">Student – Class 10</p>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="testimonial-text">"Ambala Academic Classes provides a peaceful environment and clear explanations. Doubts are always welcomed and solved with patience."</p>
+      </article>
+
+      <article class="testimonial-card">
+        <div class="testimonial-top">
+          <div class="testimonial-avatar">
+            <img src="https://i.pinimg.com/736x/ee/e3/17/eee3174024358ca06f980e3e96a67742.jpg" alt="Parent testimonial"/>
+          </div>
+          <div>
+            <p class="testimonial-name">Parent – Class 6</p>
+            <div class="stars">★★★★☆</div>
+          </div>
+        </div>
+        <p class="testimonial-text">"We like the regular updates shared with parents and the structured study plan before exams."</p>
+      </article>
+
+      <article class="testimonial-card">
+        <div class="testimonial-top">
+          <div class="testimonial-avatar">
+            <img src="https://i.pinimg.com/736x/fc/e7/ee/fce7ee0370417f8d30c3b77fbc704ffd.jpg" alt="Student testimonial"/>
+          </div>
+          <div>
+            <p class="testimonial-name">Student – Class 12</p>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="testimonial-text">"Concepts in Physics and Mathematics became much clearer. The test series before boards was extremely helpful."</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+    <!-- Gallery -->
+    <section class="section section-card" id="gallery">
+      <h2 class="section-title">Gallery</h2>
+      <div class="gallery-grid observe fade-up">
+        <img src="/images/gallery-1.jpg" alt="Classroom photo 1" />
+        <img src="/images/gallery-2.jpg" alt="Classroom photo 2" />
+        <img src="/images/gallery-3.jpg" alt="Students studying" />
+        <img src="/images/gallery-4.jpg" alt="Award function" />
+        <img src="/images/gallery-6.jpg" alt="Teacher explaining" />
+      </div>
+    </section>
+
+    <!-- Location -->
+    <section class="section" id="location">
+      <h2 class="section-title">Location</h2>
+      <p class="section-subtitle">
+        Ambala Academic Classes, Ambala, Haryana, India
+      </p>
+      <div class="location-wrapper observe slide-up">
+        <div class="map-container">
+          <iframe title="Ambala Academic Classes Location"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3430.793364038742!2d76.7794!3d30.3782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDIyJzQxLjUiTiA3NsKwNDYnNDYuMCJF!5e0!3m2!1sen!2sin!4v1610000000000"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="location-actions">
+          <p class="address">
+            Ambala Academic Classes<br />
+            Ambala, Haryana – 134003
+          </p>
+          <div class="location-buttons">
+            <a href="tel:+919876543210" class="btn btn-primary ripple btn-small">Call Now</a>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Ambala%2C%20Haryana"
+              class="btn btn-outline ripple btn-small" target="_blank" rel="noopener">Get Directions</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section section-card" id="contact">
+      <h2 class="section-title">Contact & Enquiry</h2>
+
+      <% if (successMessage) { %>
+        <div class="alert alert-success" id="contact-alert">
+          <%= successMessage %>
+        </div>
+        <% } %>
+          <% if (errorMessage) { %>
+            <div class="alert alert-error" id="contact-alert">
+              <%= errorMessage %>
+            </div>
+            <% } %>
+              <form class="contact-form observe fade-up" method="POST" action="/contact" novalidate>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="name">Student / Parent Name *</label>
+                    <input type="text" id="name" name="name" required minlength="2" />
+                  </div>
+                  <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required pattern="[0-9]{10,}" />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="studentClass">Class *</label>
+                    <select id="studentClass" name="studentClass" required>
+                      <option value="">Select Class</option>
+                      <option value="1-5">Classes 1–5</option>
+                      <option value="6-8">Classes 6–8</option>
+                      <option value="9-10">Classes 9–10</option>
+                      <option value="11-12">Classes 11–12</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group form-group-full">
+                  <label for="message">Message / Query</label>
+                  <textarea id="message" name="message" rows="4"
+                    placeholder="Share subjects, preferred timing, etc."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary ripple form-submit btn-narrow">Submit Enquiry</button>
+              </form>
+    </section>
+  </main>
+
+  <!-- Fixed bottom mobile bar -->
+  <div class="mobile-bar">
+    <a href="tel:+919876543210" class="mobile-bar-btn">
+      Call Now
+    </a>
+    <a href="<%= waLink %>" class="mobile-bar-btn mobile-bar-btn--whatsapp" target="_blank" rel="noopener">
+      WhatsApp
+    </a>
+  </div>
+
+  <script src="/js/main.js"></script>
+  <!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+
+    <!-- Brand Column -->
+    <div class="footer-brand">
+      <div class="logo">
+        <img src="/images/footer_logo.png" alt="Ambala Academic Classes Logo" />
+        <div class="logo-text">
+          <span class="logo-title">Ambala Academic Classes</span>
+          <span class="logo-subtitle">Ambala, Haryana</span>
+        </div>
+      </div>
+      <p class="footer-tagline">
+        Quality CBSE coaching for Classes 1–12 with personal attention and small batches.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-col">
+      <h4 class="footer-heading">Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="#why">Why Choose Us</a></li>
+        <li><a href="#subjects">Subjects</a></li>
+        <li><a href="#classes">Classes</a></li>
+        <li><a href="#about">About Tutor</a></li>
+        <li><a href="#timings">Batch Timings</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-col">
+      <h4 class="footer-heading">Contact Us</h4>
+      <ul class="footer-contact">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          Ambala, Haryana – 134003
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07
+                     A19.5 19.5 0 0 1 5.07 13a19.79 19.79 0 0 1-3.07-8.67
+                     A2 2 0 0 1 4 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81
+                     a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27
+                     a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7
+                     A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <a href="tel:+919876543210">+91 98765 43210</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          <a href="<%= waLink %>" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+               stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="16" rx="2"/>
+            <path d="M3 9h18"/>
+            <path d="M8 2v4M16 2v4"/>
+          </svg>
+          Mon – Sat: 6:00 AM – 9:00 PM
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="footer-bottom">
+    <p>© <%= new Date().getFullYear() %> Ambala Academic Classes. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+
+</html>
