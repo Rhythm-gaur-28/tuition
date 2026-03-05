@@ -19,6 +19,13 @@
   box-sizing: border-box;
 }
 
+/* ✅ FIX 1 — prevent any child from causing horizontal overflow */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 body {
   margin: 0;
   font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -439,7 +446,6 @@ body {
   margin-top: 1.5rem;
 }
 
-/* Single subject — centered card */
 .subjects-grid.single-subject {
   grid-template-columns: minmax(0, 220px);
   justify-content: center;
@@ -533,9 +539,9 @@ body {
   color: #fff;
 }
 
-.badge-primary  { background: var(--primary); }
+.badge-primary   { background: var(--primary); }
 .badge-secondary { background: var(--secondary); }
-.badge-accent   { background: var(--accent); }
+.badge-accent    { background: var(--accent); }
 
 .accordion-icon {
   font-size: 1.2rem;
@@ -650,19 +656,25 @@ body {
   fill: none;
 }
 
-/* Timings */
-.timings-table-wrapper { margin-top: 1.5rem; }
+/* ✅ FIX 2 — Timings table: scrollable + no squishing */
+.timings-table-wrapper {
+  margin-top: 1.5rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
 
 .timings-table {
   width: 100%;
+  min-width: 420px;
   border-collapse: collapse;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
 }
 
 .timings-table th,
 .timings-table td {
-  padding: 0.7rem 0.5rem;
+  padding: 0.65rem 0.75rem;
   border-bottom: 1px solid #ececf7;
+  white-space: nowrap;
 }
 
 .timings-table th {
@@ -678,6 +690,8 @@ body {
 .testimonials-wrapper {
   overflow: hidden;
   margin-top: 1.5rem;
+  /* ✅ FIX 3 — contain the scroll track so it never leaks page width */
+  contain: layout style;
   -webkit-mask-image: linear-gradient(
     to right,
     transparent 0%,
@@ -919,7 +933,11 @@ textarea:focus {
 }
 
 .slide-left  { transform: translateX(-20px); }
-.slide-right { transform: translateX(20px); }
+
+/* ✅ FIX 3 — slide-right must NOT push content beyond the viewport */
+.slide-right {
+  transform: translateX(0);   /* disabled on mobile — was causing right overflow */
+}
 
 /* On-load hero animation */
 .animate-on-load {
@@ -950,7 +968,7 @@ textarea:focus {
   padding-bottom: 2.5rem;
 }
 
-.footer .logo-title  { color: #fff; }
+.footer .logo-title   { color: #fff; }
 .footer .logo-subtitle { color: rgba(255, 255, 255, 0.65); }
 
 .footer-tagline {
@@ -1053,10 +1071,10 @@ textarea:focus {
   .hero-buttons { flex-direction: row; }
   .hero-side-image { display: block; }
 
-  .why-grid       { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .subjects-grid  { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .benefits-grid  { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .gallery-grid   { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .why-grid      { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .subjects-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .benefits-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .gallery-grid  { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 
   .subjects-grid.single-subject {
     grid-template-columns: minmax(0, 240px);
@@ -1066,8 +1084,11 @@ textarea:focus {
   .about-image-large img { width: 200px; height: 200px; }
 
   .location-wrapper { flex-direction: row; }
-  .map-container { flex: 3; height: 260px; }
+  .map-container    { flex: 3; height: 260px; }
   .location-actions { flex: 2; }
+
+  /* ✅ Restore slide-right animation on desktop where there's no overflow risk */
+  .slide-right { transform: translateX(20px); }
 
   .nav {
     position: static;
@@ -1102,12 +1123,11 @@ textarea:focus {
     color: var(--primary);
   }
 
-  .info-card { padding: 1.1rem 1rem; }
-
+  .info-card  { padding: 1.1rem 1rem; }
   .hamburger  { display: none; }
   .mobile-bar { display: none; }
 
-  .form-row { flex-direction: row; }
+  .form-row   { flex-direction: row; }
   .form-group { flex: 1; }
   .contact-form { max-width: 640px; }
 }
