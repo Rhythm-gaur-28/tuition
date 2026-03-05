@@ -12,7 +12,7 @@
       }, 120);
     }
 
-    // ✅ Clean URL immediately — reload won't show message or scroll again
+    // Clean URL immediately — reload won't show message or scroll again
     history.replaceState(null, '', window.location.pathname);
   }
 })();
@@ -75,27 +75,22 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 
 
 // Intersection Observer for scroll reveal
-const observerOptions = {
-  threshold: 0.15
-};
-
-const revealCallback = (entries, observer) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('in-view');
-      observer.unobserve(entry.target);
-    }
-  });
-};
-
-const scrollObserver = new IntersectionObserver(revealCallback, observerOptions);
+const scrollObserver = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.15 }
+);
 document.querySelectorAll('.observe').forEach((el) => scrollObserver.observe(el));
 
 
 // Accordion behavior with smooth transitions
-const accordionHeaders = document.querySelectorAll('.js-accordion-header');
-
-accordionHeaders.forEach((headerBtn) => {
+document.querySelectorAll('.js-accordion-header').forEach((headerBtn) => {
   headerBtn.addEventListener('click', () => {
     const item = headerBtn.parentElement;
     const bodyEl = item.querySelector('.accordion-body');
@@ -119,33 +114,24 @@ accordionHeaders.forEach((headerBtn) => {
   });
 });
 
-// ===== PROGRESSIVE TESTIMONIAL SCROLLER =====
-const scrollers = document.querySelectorAll(".scroller");
 
-if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  scrollers.forEach((scroller) => {
-    scroller.setAttribute("data-animated", "true");
-
-    const inner = scroller.querySelector(".scroller__inner");
-    const items = Array.from(inner.children);
-
-    // Duplicate items
-    items.forEach((item) => {
-      const clone = item.cloneNode(true);
-      clone.setAttribute("aria-hidden", "true");
-      inner.appendChild(clone);
-    });
-
-    // Pause on touch (mobile)
-    scroller.addEventListener("touchstart", () => {
-      inner.style.animationPlayState = "paused";
-    });
-
-    scroller.addEventListener("touchend", () => {
-      inner.style.animationPlayState = "running";
-    });
+// Testimonials — pause on hover and touch
+const testimonialsTrack = document.querySelector('.testimonials-track');
+if (testimonialsTrack) {
+  testimonialsTrack.addEventListener('mouseenter', () => {
+    testimonialsTrack.style.animationPlayState = 'paused';
+  });
+  testimonialsTrack.addEventListener('mouseleave', () => {
+    testimonialsTrack.style.animationPlayState = 'running';
+  });
+  testimonialsTrack.addEventListener('touchstart', () => {
+    testimonialsTrack.style.animationPlayState = 'paused';
+  });
+  testimonialsTrack.addEventListener('touchend', () => {
+    testimonialsTrack.style.animationPlayState = 'running';
   });
 }
+
 
 // Contact form client-side validation
 const contactForm = document.querySelector('.contact-form');
@@ -154,16 +140,18 @@ if (contactForm) {
     const name = contactForm.querySelector('#name');
     const phone = contactForm.querySelector('#phone');
     const studentClass = contactForm.querySelector('#studentClass');
+    const mode = contactForm.querySelector('#mode');
     const message = contactForm.querySelector('#message');
 
     if (
       !name.value.trim() ||
       !phone.value.trim() ||
       !studentClass.value ||
+      !mode.value ||
       !message.value.trim()
     ) {
       e.preventDefault();
-      alert('Please fill in all fields including your message before submitting.');
+      alert('Please fill in all fields before submitting.');
     }
   });
 }

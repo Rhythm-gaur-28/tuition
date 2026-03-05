@@ -10,7 +10,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "Landing page for Ambala Academic Classes - CBSE Tuition for Classes 1-12",
+  "description": "Landing page for Ambala Academic Classes - CBSE Tuition for Classes 10-12",
   "dependencies": {
     "body-parser": "^2.2.2",
     "dotenv": "^17.3.1",

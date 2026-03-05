@@ -8,18 +8,18 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-const sendEnquiryEmail = async ({ name, phone, studentClass, message }) => {
+const sendEnquiryEmail = async ({ name, phone, studentClass, mode, message }) => {
   const mailOptions = {
-    from: `"Ambala Academic Classes Website" <${process.env.EMAIL_USER}>`,
+    from: `"Maths Tuition – Vimmy Ma'am" <${process.env.EMAIL_USER}>`,
     to: process.env.EMAIL_TO,
-    subject: `New Enquiry – ${name} | Class ${studentClass}`,
+    subject: `New Enquiry – ${name} | Class ${studentClass} | ${mode}`,
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 520px; margin: auto; border: 1px solid #e0e0e0; border-radius: 12px; overflow: hidden;">
-        
+
         <div style="background: #3a4f9a; padding: 20px 24px;">
           <h2 style="color: #ffffff; margin: 0; font-size: 18px;">New Student Enquiry</h2>
           <p style="color: rgba(255,255,255,0.75); margin: 4px 0 0; font-size: 13px;">
-            Received via Ambala Academic Classes website
+            Received via Maths Tuition by Vimmy Ma'am website
           </p>
         </div>
 
@@ -43,7 +43,13 @@ const sendEnquiryEmail = async ({ name, phone, studentClass, message }) => {
               <td style="padding: 10px 0; color: #888; vertical-align: top;">
                 <strong>Class</strong>
               </td>
-              <td style="padding: 10px 0; color: #2e2e2e;">${studentClass}</td>
+              <td style="padding: 10px 0; color: #2e2e2e;">Class ${studentClass}</td>
+            </tr>
+            <tr style="border-top: 1px solid #f0f0f0;">
+              <td style="padding: 10px 0; color: #888; vertical-align: top;">
+                <strong>Mode</strong>
+              </td>
+              <td style="padding: 10px 0; color: #2e2e2e;">${mode}</td>
             </tr>
             <tr style="border-top: 1px solid #f0f0f0;">
               <td style="padding: 10px 0; color: #888; vertical-align: top;">
@@ -58,7 +64,7 @@ const sendEnquiryEmail = async ({ name, phone, studentClass, message }) => {
 
         <div style="background: #f7f5ef; padding: 14px 24px; text-align: center; border-top: 1px solid #ececec;">
           <p style="margin: 0; font-size: 12px; color: #aaa;">
-            Ambala Academic Classes – Auto Notification | Do not reply to this email
+            Maths Tuition by Vimmy Ma'am – Auto Notification | Do not reply to this email
           </p>
         </div>
 
