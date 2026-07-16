@@ -1,4 +1,3 @@
-// Scroll to contact section if success/error message is present (after PRG redirect)
 (function () {
   const params = new URLSearchParams(window.location.search);
   if (params.has('success') || params.has('error')) {
@@ -12,13 +11,10 @@
       }, 120);
     }
 
-    // Clean URL immediately — reload won't show message or scroll again
     history.replaceState(null, '', window.location.pathname);
   }
 })();
 
-
-// Mobile nav toggle
 const hamburger = document.querySelector('.js-hamburger');
 const nav = document.querySelector('.js-nav');
 
@@ -28,7 +24,6 @@ if (hamburger && nav) {
     nav.classList.toggle('open');
   });
 
-  // Close when a link is clicked
   nav.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('active');
@@ -36,7 +31,6 @@ if (hamburger && nav) {
     });
   });
 
-  // Close when clicking anywhere outside the header
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.js-header')) {
       hamburger.classList.remove('active');
@@ -45,8 +39,6 @@ if (hamburger && nav) {
   });
 }
 
-
-// Sticky header shrink on scroll
 const header = document.querySelector('.js-header');
 if (header) {
   window.addEventListener('scroll', () => {
@@ -58,8 +50,6 @@ if (header) {
   });
 }
 
-
-// Smooth scrolling for internal links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener('click', function (e) {
     const targetId = this.getAttribute('href').substring(1);
@@ -73,8 +63,6 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-
-// Intersection Observer for scroll reveal
 const scrollObserver = new IntersectionObserver(
   (entries, observer) => {
     entries.forEach((entry) => {
@@ -88,15 +76,12 @@ const scrollObserver = new IntersectionObserver(
 );
 document.querySelectorAll('.observe').forEach((el) => scrollObserver.observe(el));
 
-
-// Accordion behavior with smooth transitions
 document.querySelectorAll('.js-accordion-header').forEach((headerBtn) => {
   headerBtn.addEventListener('click', () => {
     const item = headerBtn.parentElement;
     const bodyEl = item.querySelector('.accordion-body');
     const isOpen = item.classList.contains('open');
 
-    // Close all others
     document.querySelectorAll('.accordion-item.open').forEach((openItem) => {
       if (openItem !== item) {
         openItem.classList.remove('open');
@@ -114,8 +99,6 @@ document.querySelectorAll('.js-accordion-header').forEach((headerBtn) => {
   });
 });
 
-
-// Testimonials — pause on hover and touch
 const testimonialsTrack = document.querySelector('.testimonials-track');
 if (testimonialsTrack) {
   testimonialsTrack.addEventListener('mouseenter', () => {
@@ -132,26 +115,66 @@ if (testimonialsTrack) {
   });
 }
 
-
-// Contact form client-side validation
 const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
-    const name = contactForm.querySelector('#name');
-    const phone = contactForm.querySelector('#phone');
-    const studentClass = contactForm.querySelector('#studentClass');
-    const mode = contactForm.querySelector('#mode');
-    const message = contactForm.querySelector('#message');
 
-    if (
-      !name.value.trim() ||
-      !phone.value.trim() ||
-      !studentClass.value ||
-      !mode.value ||
-      !message.value.trim()
-    ) {
+if (contactForm) {
+  const formStartedAt = document.getElementById('formStartedAt');
+  const nameInput = contactForm.querySelector('#name');
+  const phoneInput = contactForm.querySelector('#phone');
+  const studentClass = contactForm.querySelector('#studentClass');
+  const mode = contactForm.querySelector('#mode');
+  const messageInput = contactForm.querySelector('#message');
+
+  if (formStartedAt) {
+    formStartedAt.value = Date.now().toString();
+  }
+
+  phoneInput.addEventListener('input', () => {
+    phoneInput.value = phoneInput.value.replace(/\D/g, '').slice(0, 10);
+  });
+
+  messageInput.addEventListener('input', () => {
+    if (messageInput.value.length > 300) {
+      messageInput.value = messageInput.value.slice(0, 300);
+    }
+  });
+
+  contactForm.addEventListener('submit', (e) => {
+    const name = nameInput.value.trim();
+    const phone = phoneInput.value.trim();
+    const message = messageInput.value.trim();
+
+    const nameRegex = /^[A-Za-z][A-Za-z\s.'-]{1,49}$/;
+    const phoneRegex = /^[6-9]\d{9}$/;
+    const linkRegex = /(https?:\/\/|www\.|\b[a-z0-9-]+\.(com|net|org|ru|xyz|info|biz|top|click|link|shop|site|live|me|cc|io|in)\b)/i;
+
+    if (!name || !phone || !studentClass.value || !mode.value || !message) {
       e.preventDefault();
       alert('Please fill in all fields before submitting.');
+      return;
+    }
+
+    if (!nameRegex.test(name)) {
+      e.preventDefault();
+      alert('Please enter a valid name.');
+      return;
+    }
+
+    if (!phoneRegex.test(phone)) {
+      e.preventDefault();
+      alert('Please enter a valid 10-digit phone number.');
+      return;
+    }
+
+    if (message.length < 10 || message.length > 300) {
+      e.preventDefault();
+      alert('Message must be between 10 and 300 characters.');
+      return;
+    }
+
+    if (linkRegex.test(message)) {
+      e.preventDefault();
+      alert('Links are not allowed in the message.');
     }
   });
 }

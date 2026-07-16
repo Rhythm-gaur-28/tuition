@@ -830,6 +830,12 @@ body {
 .address { font-size: 0.9rem; }
 
 /* Contact */
+.honeypot-field {
+  position: absolute !important;
+  left: -9999px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
 .contact-form {
   margin-top: 1.5rem;
   display: flex;
